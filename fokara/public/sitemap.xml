@@ -34,4 +34,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://maktabatlfokara.194.163.143.60.sslip.io/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
   </url>
+  <url>
+    <loc>https://maktabatlfokara.194.163.143.60.sslip.io/maroc.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maktabatlfokara.194.163.143.60.sslip.io/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maktabatlfokara.194.163.143.60.sslip.io/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+  </url>
 </urlset>

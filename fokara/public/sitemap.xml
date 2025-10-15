@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://maktabatlfokara.194.163.143.60.sslip.io/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maktabatlfokara.194.163.143.60.sslip.io/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maktabatlfokara.194.163.143.60.sslip.io/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+  </url>
+  <url>
+    <loc>https://maktabatlfokara.194.163.143.60.sslip.io/fr/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maktabatlfokara.194.163.143.60.sslip.io/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maktabatlfokara.194.163.143.60.sslip.io/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+  </url>
+  <url>
+    <loc>https://maktabatlfokara.194.163.143.60.sslip.io/en/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://maktabatlfokara.194.163.143.60.sslip.io/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maktabatlfokara.194.163.143.60.sslip.io/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maktabatlfokara.194.163.143.60.sslip.io/" />
+  </url>
+</urlset>

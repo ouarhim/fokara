@@ -21,5 +21,6 @@ RUN npm install -g serve
 # Expose port
 EXPOSE 3000
 
-# Start the application
+# Start the application with SPA routing
+# -s flag enables single-page app mode (all routes serve index.html)
 CMD ["serve", "-s", "dist", "-l", "3000"]

@@ -1,0 +1,5 @@
+file_path,detected_healthcheck,port,status,action_taken
+Dockerfile,HEALTHCHECK added,3000,FIXED,Added healthcheck with wget on port 3000
+Dockerfile.coolify,HEALTHCHECK updated,3000,FIXED,Updated healthcheck intervals and timeout
+Dockerfile.nginx,HEALTHCHECK updated,80,FIXED,Updated healthcheck to use port 80 explicitly
+Dockerfile.simple,HEALTHCHECK added,3000,FIXED,Added healthcheck with wget on port 3000

@@ -1,0 +1,6 @@
+# Coolify ignore file
+# Files that Coolify should ignore during deployment
+
+Dockerfile
+Dockerfile.*
+docker-compose.yml

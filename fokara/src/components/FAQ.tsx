@@ -4,13 +4,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { StructuredData } from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const FAQ = () => {
   const { t, dir } = useLanguage();
+  
+  // Prepare FAQ data for structured data
+  const faqData = t.faq.questions.map((faq) => ({
+    question: faq.question,
+    answer: faq.answer,
+  }));
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/30" dir={dir}>
+      <StructuredData type="FAQPage" data={faqData} />
       <div className="container px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">

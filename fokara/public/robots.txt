@@ -10,8 +10,12 @@ Crawl-delay: 1
 # Disallow admin or private areas (if any)
 # Disallow: /admin/
 # Disallow: /private/
+# Disallow: /cart/
+# Disallow: /checkout/
 
 # Allow all search engines to index the main content
 Allow: /src/
 Allow: /assets/
 Allow: /images/
+Allow: /agadir
+Allow: /maroc.html

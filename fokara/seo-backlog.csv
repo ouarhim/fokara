@@ -1,0 +1,18 @@
+task,file(s),type,priority,impact,effort,owner,acceptance_criteria
+Add React Helmet for dynamic meta tags,src/pages/Index.tsx src/components/SEOHead.tsx,tech,P0,High,Medium,Dev,Install react-helmet-async create SEOHead component with dynamic title/description/OG tags based on language
+Implement dynamic hreflang links,src/components/SEOHead.tsx,tech,P0,High,Low,Dev,Add hreflang links dynamically in SEOHead component for ar-MA fr-MA en with absolute URLs
+Enhance LocalBusiness JSON-LD,index.html src/components/StructuredData.tsx,local,P0,High,Low,Dev,Update JSON-LD with complete NAP accurate coordinates opening hours service area sameAs profiles
+Create Agadir landing pages,src/pages/Agadir.tsx src/pages/ar/Agadir.tsx,content,P0,High,High,Dev+Content,Create /agadir (fr) and /ar/أكادير (ar) pages with unique content FAQs map embed LocalBusiness schema
+Add FAQPage structured data,src/components/FAQ.tsx src/components/StructuredData.tsx,tech,P0,High,Low,Dev,Extract FAQ questions/answers and generate FAQPage JSON-LD schema
+Add BreadcrumbList schema,src/components/Breadcrumb.tsx,tech,P0,Medium,Medium,Dev,Create breadcrumb component with BreadcrumbList JSON-LD for category/product pages
+Optimize hero image for LCP,src/components/Hero.tsx,tech,P1,High,Low,Dev,Add priority loading preload hero image add width/height attributes
+Add width/height to catalog images,src/components/Catalog.tsx,tech,P1,Medium,Low,Dev,Add explicit width/height to all catalog images to prevent CLS
+Create sitemap generation script,scripts/generate-sitemap.js,tech,P1,Medium,Medium,Dev,Create Node.js script to generate sitemap.xml from routes with hreflang support
+Enhance footer internal linking,src/components/Footer.tsx,content,P1,Medium,Low,Content,Add category links (romans manga fournitures scolaires) to footer
+Add dynamic canonical URLs,src/components/SEOHead.tsx,tech,P1,Medium,Low,Dev,Generate canonical URLs dynamically based on current route and language
+Add ContactPoint schema with WhatsApp,src/components/StructuredData.tsx,local,P1,Medium,Low,Dev,Add ContactPoint to LocalBusiness schema with WhatsApp phone number
+Expand maroc.html content,public/maroc.html,content,P2,Low,Medium,Content,Add more content categories delivery information internal links
+Create product detail page template,src/pages/Product.tsx,content,P2,High,High,Dev+Content,Create product detail page with Product schema breadcrumbs internal links
+Review and improve image alt text,src/components/Catalog.tsx src/components/Hero.tsx,tech,P2,Low,Low,Content,Review all alt text ensure descriptive SEO-friendly alt text for all images
+Add pagination to catalog,src/components/Catalog.tsx,tech,P2,Low,Medium,Dev,Add pagination or infinite scroll to catalog component
+Add social sharing buttons,src/components/Footer.tsx,tech,P2,Low,Low,Dev,Add social sharing buttons for Facebook Twitter WhatsApp

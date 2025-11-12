@@ -1,0 +1,18 @@
+issue,severity,file,type,description,fix_required
+Missing dynamic meta tags for language switching,P0,src/pages/Index.tsx,tech,HTML meta tags are static in index.html - need React Helmet for dynamic language-based meta tags,Add react-helmet-async and implement dynamic meta tags
+Missing hreflang implementation in React,P0,src/App.tsx,tech,Hreflang links only in HTML - need dynamic implementation for language routes,Add hreflang links dynamically based on current language
+No LocalBusiness JSON-LD on homepage,P0,index.html,local,LocalBusiness schema exists but needs enhancement with accurate NAP and service area,Update JSON-LD with complete NAP data
+Missing Agadir-specific landing page,P0,N/A,content,No dedicated /agadir or /ar/أكادير page for local SEO targeting,Create bilingual Agadir landing pages
+FAQ schema missing,P0,src/components/FAQ.tsx,tech,FAQ component exists but no FAQPage JSON-LD schema,Add FAQPage structured data
+Missing breadcrumb schema,P0,src/components/Header.tsx,tech,No breadcrumb navigation or BreadcrumbList schema,Add breadcrumb component with schema
+Images missing width/height attributes,P1,src/components/Catalog.tsx,tech,Images use lazy loading but missing explicit dimensions for CLS prevention,Add width/height to all images
+Hero image not optimized for LCP,P1,src/components/Hero.tsx,tech,Hero image should have priority loading and preload,Add priority loading and preload hero image
+No sitemap generation script,P1,N/A,tech,Static sitemap exists but no automated generation for new routes,Create sitemap generation script
+Missing internal linking strategy,P1,src/components/Footer.tsx,content,Footer has links but no strategic internal linking to categories,Enhance footer with category links
+No canonical URL management in React,P1,src/App.tsx,tech,Canonical only in HTML - need dynamic canonical for language variants,Add dynamic canonical URLs
+Missing WhatsApp CTA in structured data,P1,index.html,local,WhatsApp CTA exists but not in structured data,Add ContactPoint schema with WhatsApp
+Thin content on maroc.html page,P2,public/maroc.html,content,Morocco page has minimal content - needs more substance,Expand content with categories and delivery info
+No product detail pages,P2,N/A,content,No individual product pages for books - limits SEO opportunities,Create product detail page template
+Missing alt text on some decorative images,P2,src/components/Catalog.tsx,tech,Some images may have generic alt text,Review and improve all alt text
+No pagination for catalog,P2,src/components/Catalog.tsx,tech,Catalog shows 6 books but no pagination or "view more",Add pagination or infinite scroll
+Missing social sharing buttons,P2,src/components/Footer.tsx,tech,No share buttons for social media,Add social sharing functionality

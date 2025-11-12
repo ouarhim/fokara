@@ -18,6 +18,10 @@ export const Hero = ({ onWhatsAppClick }: HeroProps) => {
           src={heroImage} 
           alt={`${t.brandName} - ${t.hero.mainHeading1}`}
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
         />
         <div className={`absolute inset-0 bg-gradient-to-l ${dir === 'rtl' ? 'l' : 'r'} from-background/95 via-background/85 to-background/60`} />
       </div>

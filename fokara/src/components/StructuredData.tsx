@@ -24,9 +24,14 @@ interface FAQData {
   answer: string;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface StructuredDataProps {
   type: "LocalBusiness" | "FAQPage" | "BreadcrumbList";
-  data?: LocalBusinessData | FAQData[] | any;
+  data?: LocalBusinessData | FAQData[] | BreadcrumbItem[];
 }
 
 export const StructuredData = ({ type, data }: StructuredDataProps) => {
@@ -104,7 +109,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
     };
   };
 
-  const getBreadcrumbSchema = (items: any[]) => {
+  const getBreadcrumbSchema = (items: BreadcrumbItem[]) => {
     return {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",

@@ -23,9 +23,8 @@ RUN npm install -g serve
 # Expose port 3000
 EXPOSE 3000
 
-# Health check using curl (available in alpine)
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+# Note: Healthcheck removed temporarily - Coolify will handle it
+# If needed, add back: HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 CMD wget --spider --quiet http://localhost:3000 || exit 1
 
 # Start the application with SPA routing
 # -s flag enables single-page app mode (all routes serve index.html)

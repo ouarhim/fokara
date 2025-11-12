@@ -1,0 +1,28 @@
+# Coolify configuration file
+# This helps Coolify understand how to build and serve your app
+
+build:
+  # Build command - creates dist folder
+  command: npm run build
+  
+  # Directory to serve files from
+  publish: dist
+  
+  # Dockerfile to use (if using Docker)
+  dockerfile: Dockerfile.coolify
+
+# Server configuration
+server:
+  # Port your app runs on
+  port: 3000
+  
+  # Health check endpoint
+  healthcheck: /
+
+# Static site configuration
+static:
+  # Root directory for static files
+  root: dist
+  
+  # SPA routing - serve index.html for all routes
+  spa: true

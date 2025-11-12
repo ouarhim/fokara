@@ -1,0 +1,20 @@
+# Nixpacks configuration for Coolify
+# This file helps Nixpacks understand how to build and serve your React app
+
+[phases.setup]
+nixPkgs = ["nodejs_18", "npm-9_x"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+# Static site configuration
+[variables]
+NIXPACKS_SPA_OUTPUT_DIR = "dist"
+NODE_ENV = "production"
+
+# Start command - use Caddy (Nixpacks default for static sites)
+[start]
+cmd = "exec caddy run --config /assets/Caddyfile --adapter caddyfile 2>&1"

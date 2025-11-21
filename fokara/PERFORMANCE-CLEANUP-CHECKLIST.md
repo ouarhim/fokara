@@ -1,219 +1,164 @@
 # Performance Cleanup Checklist
 
-## Phase 1: Quick Wins (1-2 hours) - HIGH IMPACT ⚡
+## Priority: HIGH 🔴 (Immediate Impact)
 
-### ✅ Task 1.1: Remove Unused Dependencies
-- [ ] Remove `zod` - Not used
-- [ ] Remove `@hookform/resolvers` - Not used
-- [ ] Remove `react-hook-form` - Not used
-- [ ] Remove `date-fns` - Not used
-- [ ] Remove `react-day-picker` - Not used
-- [ ] Remove `recharts` - Not used
-- [ ] Remove `cmdk` - Not used
-- [ ] Remove `input-otp` - Not used
-- [ ] Remove `embla-carousel-react` - Not used
-- [ ] Remove `react-resizable-panels` - Not used
-- [ ] Remove `vaul` - Not used
-- [ ] Remove `next-themes` - Not used
-- [ ] Remove `@tanstack/react-query` - Not used
-- [ ] Remove `@tailwindcss/typography` - Not used
+### Phase 1: Remove Unused Dependencies
+- [ ] Remove `@tanstack/react-query` (~45KB)
+- [ ] Remove `react-hook-form` (~35KB)
+- [ ] Remove `@hookform/resolvers` (~8KB)
+- [ ] Remove `zod` (~50KB)
+- [ ] Remove `recharts` (~180KB)
+- [ ] Remove `date-fns` (~70KB)
+- [ ] Remove `react-day-picker` (~45KB)
+- [ ] Remove `cmdk` (~25KB)
+- [ ] Remove `embla-carousel-react` (~15KB)
+- [ ] Remove `input-otp` (~8KB)
+- [ ] Remove `react-resizable-panels` (~20KB)
+- [ ] Remove `vaul` (~12KB)
+- [ ] Remove `next-themes` (~8KB)
 
-**Command**:
+**Command:**
 ```bash
-npm uninstall zod @hookform/resolvers react-hook-form date-fns react-day-picker recharts cmdk input-otp embla-carousel-react react-resizable-panels vaul next-themes @tanstack/react-query @tailwindcss/typography
+npm uninstall @tanstack/react-query react-hook-form @hookform/resolvers zod recharts date-fns react-day-picker cmdk embla-carousel-react input-otp react-resizable-panels vaul next-themes
 ```
 
-**Expected Impact**: ~542 KB reduction
+**Estimated savings:** ~535KB (gzipped: ~150KB)
 
 ---
 
-### ✅ Task 1.2: Remove Sonner Toast
-- [ ] Remove import from `src/App.tsx`
-- [ ] Remove `<Sonner />` component usage
+### Phase 2: Remove QueryClientProvider
+- [ ] Open `src/App.tsx`
+- [ ] Remove `import { QueryClient, QueryClientProvider } from "@tanstack/react-query";`
+- [ ] Remove `const queryClient = new QueryClient();`
+- [ ] Remove `<QueryClientProvider client={queryClient}>` wrapper
+- [ ] Remove closing `</QueryClientProvider>` tag
 
-**File**: `src/App.tsx`
-```tsx
-// Remove this line:
-import { Toaster as Sonner } from "@/components/ui/sonner";
+**Estimated savings:** Runtime overhead reduction
 
-// Remove this line:
-<Sonner />
+---
+
+### Phase 3: Fix or Remove Sonner
+**Option A: Remove Sonner (if toasts not needed)**
+- [ ] Remove `import { Toaster as Sonner } from "@/components/ui/sonner";` from `src/App.tsx`
+- [ ] Remove `<Sonner />` from `src/App.tsx`
+- [ ] Delete `src/components/ui/sonner.tsx`
+
+**Option B: Fix Sonner (if toasts are needed)**
+- [ ] Open `src/components/ui/sonner.tsx`
+- [ ] Remove `import { useTheme } from "next-themes";`
+- [ ] Replace `const { theme = "system" } = useTheme();` with `const theme = "dark";`
+- [ ] Test toast functionality
+
+**Estimated savings:** ~15KB + removes next-themes dependency
+
+---
+
+### Phase 4: Remove Unused UI Components
+- [ ] Run cleanup script: `node scripts/cleanup-performance.js`
+- [ ] Or manually delete 42 unused component files from `src/components/ui/`
+
+**Files to remove:**
+- alert-dialog.tsx, alert.tsx, aspect-ratio.tsx, avatar.tsx, badge.tsx
+- breadcrumb.tsx, calendar.tsx, carousel.tsx, chart.tsx, checkbox.tsx
+- collapsible.tsx, command.tsx, context-menu.tsx, dialog.tsx, drawer.tsx
+- dropdown-menu.tsx, form.tsx, hover-card.tsx, input-otp.tsx, input.tsx
+- label.tsx, menubar.tsx, navigation-menu.tsx, pagination.tsx, popover.tsx
+- progress.tsx, radio-group.tsx, resizable.tsx, scroll-area.tsx, select.tsx
+- separator.tsx, sheet.tsx, sidebar.tsx, skeleton.tsx, slider.tsx
+- switch.tsx, table.tsx, tabs.tsx, textarea.tsx, toggle-group.tsx, toggle.tsx
+
+**Estimated savings:** ~200KB+
+
+---
+
+## Priority: MEDIUM 🟡 (Good Impact)
+
+### Phase 5: Remove Unused Hooks
+- [ ] Delete `src/hooks/use-mobile.tsx` (only used by unused sidebar)
+
+**Estimated savings:** Minimal, but improves maintainability
+
+---
+
+### Phase 6: Clean Up Duplicate Files
+- [ ] Remove `src/components/ui/use-toast.ts` (duplicate)
+- [ ] Keep `src/hooks/use-toast.ts` (actual implementation)
+
+**Estimated savings:** Minimal, but reduces confusion
+
+---
+
+### Phase 7: Remove Unused Dev Dependencies
+- [ ] Remove `@tailwindcss/typography` (if not used)
+
+**Command:**
+```bash
+npm uninstall @tailwindcss/typography
 ```
-
-**Expected Impact**: ~12 KB reduction
-
----
-
-### ✅ Task 1.3: Remove Dark Mode CSS
-- [ ] Remove dark mode styles from `src/index.css` (lines 64-100)
-- [ ] Remove unused CSS variables:
-  - `--sidebar-*` variables
-  - `--popover` (if unused)
-  - `--destructive` (if unused)
-
-**Expected Impact**: ~50% CSS reduction
-
----
-
-### ✅ Task 1.4: Remove QueryClient (if not using React Query)
-- [ ] Remove `QueryClientProvider` from `src/App.tsx`
-- [ ] Remove `@tanstack/react-query` import
-
-**File**: `src/App.tsx`
-```tsx
-// Remove:
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-const queryClient = new QueryClient();
-
-// Remove wrapper:
-<QueryClientProvider client={queryClient}>
-  ...
-</QueryClientProvider>
-```
-
-**Expected Impact**: ~42 KB reduction
-
----
-
-## Phase 2: Component Cleanup (2-3 hours) - MEDIUM IMPACT 🔧
-
-### ✅ Task 2.1: Run Cleanup Script
-- [ ] Backup current code: `git checkout -b backup-before-cleanup`
-- [ ] Run cleanup script: `node scripts/cleanup-unused.js`
-- [ ] Verify build works: `npm run build`
-- [ ] Test application functionality
-
-**Expected Impact**: ~30-40% bundle reduction
-
----
-
-### ✅ Task 2.2: Remove Unused Radix UI Packages
-- [ ] Remove unused Radix UI packages (see list in audit report)
-- [ ] Run: `npm uninstall [packages]`
-- [ ] Verify build works
-
-**Expected Impact**: ~200 KB reduction
-
----
-
-### ✅ Task 2.3: Consolidate Toast Hooks
-- [ ] Keep `src/components/ui/use-toast.ts`
-- [ ] Remove `src/hooks/use-toast.ts`
-- [ ] Update any imports if needed
-
----
-
-## Phase 3: Code Optimization (1-2 hours) - MEDIUM IMPACT ⚙️
-
-### ✅ Task 3.1: Remove Unused Assets
-- [ ] Delete `public/placeholder.svg`
-- [ ] Delete `public/favicon.ico` (using PNG now)
-
----
-
-### ✅ Task 3.2: Optimize Vite Config
-- [ ] Remove `lovable-tagger` from production builds
-- [ ] Add build optimizations
-
-**File**: `vite.config.ts`
-```ts
-export default defineConfig(({ mode }) => ({
-  plugins: [
-    react(),
-    // Only include in development
-    mode === "development" && componentTagger()
-  ].filter(Boolean),
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['lucide-react'],
-        },
-      },
-    },
-  },
-}));
-```
-
----
-
-## Phase 4: Advanced Optimizations (2-3 hours) - LOW-MEDIUM IMPACT 🚀
-
-### ✅ Task 4.1: Implement Code Splitting
-- [ ] Lazy load Agadir page
-- [ ] Lazy load NotFound page
-- [ ] Add Suspense boundaries
-
-**File**: `src/App.tsx`
-```tsx
-import { lazy, Suspense } from "react";
-
-const Agadir = lazy(() => import("./pages/Agadir"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-
-// In Routes:
-<Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
-  <Route path="/agadir" element={<Agadir />} />
-  <Route path="*" element={<NotFound />} />
-</Suspense>
-```
-
----
-
-### ✅ Task 4.2: Optimize Images
-- [ ] Convert hero-books.jpg to WebP format
-- [ ] Compress hero image (target: <200 KB)
-- [ ] Convert book images to WebP
-- [ ] Compress book images (target: <100 KB each)
-
-**Tools**:
-- Online: https://squoosh.app/
-- CLI: `sharp-cli` or `imagemin`
-
----
-
-### ✅ Task 4.3: Font Optimization
-- [ ] Add font preload in `index.html`
-- [ ] Use `font-display: swap` (already done ✅)
 
 ---
 
 ## Testing Checklist ✅
 
-After each phase:
+After cleanup, verify:
 
-- [ ] Run `npm run build` - Should succeed
-- [ ] Run `npm run preview` - Test production build
-- [ ] Test homepage (`/`) - All features work
-- [ ] Test Agadir page (`/agadir`) - All features work
-- [ ] Test language switching - Works correctly
-- [ ] Test WhatsApp button - Opens correctly
-- [ ] Test FAQ accordion - Expands/collapses
-- [ ] Test responsive design - Mobile/tablet/desktop
-- [ ] Check browser console - No errors
-- [ ] Check Network tab - Bundle sizes reduced
+- [ ] Site loads correctly (`npm run dev`)
+- [ ] All pages render:
+  - [ ] Homepage (Index)
+  - [ ] Agadir page
+  - [ ] 404 page (NotFound)
+- [ ] Interactive elements work:
+  - [ ] WhatsApp buttons
+  - [ ] Language toggle button
+  - [ ] FAQ accordion
+  - [ ] Toast notifications (if keeping Sonner)
+- [ ] Visual elements:
+  - [ ] Images load correctly
+  - [ ] Dark mode works
+  - [ ] Navbar displays correctly
+  - [ ] Footer displays correctly
+- [ ] Build succeeds:
+  - [ ] `npm run build` completes without errors
+  - [ ] Bundle size reduced
+- [ ] No console errors:
+  - [ ] Check browser console
+  - [ ] Check terminal output
 
 ---
 
-## Performance Metrics to Track
+## Verification Commands
 
-### Before Cleanup:
-- [ ] Bundle size: _____ KB (gzipped: _____ KB)
-- [ ] Load time (3G): _____ seconds
-- [ ] First Contentful Paint: _____ seconds
-- [ ] Time to Interactive: _____ seconds
+```bash
+# Check bundle size
+npm run build
+ls -lh dist/assets/
 
-### After Cleanup:
-- [ ] Bundle size: _____ KB (gzipped: _____ KB)
-- [ ] Load time (3G): _____ seconds
-- [ ] First Contentful Paint: _____ seconds
-- [ ] Time to Interactive: _____ seconds
+# Check for unused dependencies (after cleanup)
+npx depcheck
 
-**Expected Improvements**:
-- Bundle size: ~47% reduction
-- Load time: ~37% faster
-- Runtime: ~15-20% improvement
+# Analyze bundle
+npx vite-bundle-visualizer
+```
+
+---
+
+## Expected Results
+
+### Before Cleanup
+- Bundle: ~375KB JS + ~67KB CSS = ~442KB total
+- Gzipped: ~131KB total
+- Parse time: ~150-200ms
+
+### After Cleanup
+- Bundle: ~200KB JS + ~40KB CSS = ~240KB total
+- Gzipped: ~68KB total
+- Parse time: ~80-100ms
+
+### Improvements
+- ✅ **48% smaller bundle**
+- ✅ **~50% faster parse time**
+- ✅ **Faster Time to Interactive**
+- ✅ **Lower memory usage**
 
 ---
 
@@ -221,21 +166,29 @@ After each phase:
 
 If something breaks:
 
-1. **Immediate**: `git checkout backup-before-cleanup`
-2. **Partial**: Revert specific commits
-3. **Dependencies**: `npm install` to restore packages
+1. **Git revert:**
+   ```bash
+   git checkout HEAD -- src/
+   git checkout HEAD -- package.json
+   npm install
+   ```
+
+2. **Restore deleted files:**
+   ```bash
+   git checkout HEAD -- src/components/ui/
+   git checkout HEAD -- src/hooks/
+   ```
 
 ---
 
 ## Notes
 
-- ⚠️ Always test in development before committing
-- ⚠️ Keep backup branch until verified in production
-- ✅ Phase 1 can be done immediately (safest)
-- ✅ Phase 2-4 can be done incrementally
-- 📊 Use Lighthouse to measure improvements
+- ⚠️ **Backup before starting:** Commit current state to git
+- ⚠️ **Test incrementally:** Don't do all phases at once
+- ⚠️ **Verify functionality:** Test after each phase
+- ✅ **Safe phases:** 1, 2, 4, 5, 6 (no code changes)
+- ⚠️ **Careful phases:** 3 (Sonner - may affect toasts)
 
 ---
 
-**Last Updated**: January 2025  
-**Status**: Ready to execute
+**Last Updated:** 2025-01-12

@@ -1,4 +1,4 @@
-import { BookOpen, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Footer = () => {
@@ -12,7 +12,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <BookOpen className="w-6 h-6 text-accent" />
+              <img src="/maktabat_alfokara.svg" alt="مكتبة الفقراء أكادير" className="w-6 h-6" />
               <span className="font-bold text-lg">{t.brandName}</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

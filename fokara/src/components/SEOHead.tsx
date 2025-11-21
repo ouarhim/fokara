@@ -47,7 +47,7 @@ export const SEOHead = ({
   const finalTitle = title || meta.title;
   const finalDescription = description || meta.description;
   const finalKeywords = keywords || meta.keywords;
-  const finalImage = image || `${baseUrl}/maktabat_alfokara.png`;
+  const finalImage = image || `${baseUrl}/maktabat_alfokara.svg`;
 
   // Hreflang URLs
   const hreflangUrls = {

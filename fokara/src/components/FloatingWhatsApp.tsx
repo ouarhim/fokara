@@ -24,12 +24,12 @@ export const FloatingWhatsApp = ({ onWhatsAppClick }: FloatingWhatsAppProps) => 
       {/* Main floating button */}
       <div className="relative">
         {/* Pulse animation ring - behind the button */}
-        <div className="absolute inset-0 rounded-full bg-green-500/30 animate-ping pointer-events-none" />
-        <div className="absolute inset-0 rounded-full bg-green-500/20 animate-pulse pointer-events-none" />
+        <div className="absolute inset-0 rounded-full bg-accent/30 animate-ping pointer-events-none" />
+        <div className="absolute inset-0 rounded-full bg-accent/20 animate-pulse pointer-events-none" />
         
         <Button
           onClick={onWhatsAppClick}
-          className="relative z-10 w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-green-500 hover:bg-green-600 animate-in fade-in slide-in-from-bottom-4 duration-500 hover:scale-110 active:scale-95"
+          className="relative z-10 w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-accent hover:bg-accent/90 text-accent-foreground animate-in fade-in slide-in-from-bottom-4 duration-500 hover:scale-110 active:scale-95"
           size="icon"
         >
           <MessageCircle className="w-6 h-6 text-white" />

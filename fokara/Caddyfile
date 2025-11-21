@@ -2,6 +2,11 @@
 # This file tells Caddy how to serve your built React app
 
 :80 {
+    # Health check endpoint for Coolify
+    handle /health {
+        respond "OK" 200
+    }
+    
     # Root directory - serve from dist folder
     root * /app/dist
     

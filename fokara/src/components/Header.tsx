@@ -24,17 +24,18 @@ export const Header = () => {
       <div className="container flex h-16 items-center justify-between px-4" dir={dir}>
         <div className="flex items-center gap-2">
           <img src="/maktabat_alfokara.svg" alt="مكتبة الفقراء أكادير" className="w-6 h-6" />
-          <span className="font-bold text-lg text-foreground">{t.brandName}</span>
+          <span className="font-bold text-lg" style={{ color: '#000000' }}>{t.brandName}</span>
         </div>
 
         <Button
           variant="ghost"
           size="sm"
           onClick={toggleLanguage}
-          className="gap-2"
+          className="gap-2 hover:bg-transparent"
+          style={{ color: '#000000' }}
         >
-          <Languages className="w-4 h-4" />
-          <span className="text-sm">{languageNames[language]}</span>
+          <Languages className="w-4 h-4" style={{ color: '#000000' }} />
+          <span className="text-sm" style={{ color: '#000000' }}>{languageNames[language]}</span>
         </Button>
       </div>
     </header>

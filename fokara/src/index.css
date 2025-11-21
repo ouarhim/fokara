@@ -127,3 +127,20 @@ All colors MUST be HSL.
     text-wrap: balance;
   }
 }
+
+/* Force black text in navbar - override any other styles */
+header nav,
+header .container,
+header span,
+header button {
+  color: #000000 !important;
+}
+
+header button:hover,
+header button:focus {
+  color: #000000 !important;
+}
+
+header svg {
+  color: #000000 !important;
+}

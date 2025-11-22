@@ -16,7 +16,7 @@ const Index = () => {
   
   // LocalBusiness data - TODO: Move to config file
   const localBusinessData = {
-    name: language === "ar" ? "مكتبة الفقراء أكادير" : "Librairie des Pauvres Agadir",
+    name: language === "ar" ? "مكتبة الفقراء أكادير" : "Librairie Alfokara Agadir",
     description: language === "ar"
       ? "مكتبة متخصصة في بيع الكتب والروايات بأسعار مناسبة مع خدمة توصيل سريعة لجميع مدن المغرب"
       : "Librairie et boutique de livres à Agadir proposant nouveautés, scolaires et romans avec livraison au Maroc",

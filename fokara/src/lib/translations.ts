@@ -146,7 +146,7 @@ export const translations: Record<Language, Translations> = {
     },
   },
   fr: {
-    brandName: "Librairie des Pauvres",
+    brandName: "Librairie Alfokara",
     hero: {
       trustBadge1: "7000+ lecteurs nous font confiance",
       trustBadge2: "15K+ abonnés",
@@ -222,7 +222,7 @@ export const translations: Record<Language, Translations> = {
     },
   },
   en: {
-    brandName: "Poor's Library",
+    brandName: "Alfokara Library",
     hero: {
       trustBadge1: "7000+ readers trust us",
       trustBadge2: "15K+ followers",

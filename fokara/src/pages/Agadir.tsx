@@ -34,7 +34,7 @@ const Agadir = () => {
 
   // LocalBusiness data for Agadir page
   const localBusinessData = {
-    name: language === "ar" ? "مكتبة الفقراء أكادير" : "Librairie des Pauvres Agadir",
+    name: language === "ar" ? "مكتبة الفقراء أكادير" : "Librairie Alfokara Agadir",
     description: language === "ar"
       ? "مكتبة في أكادير توفر romans, manga, fournitures scolaires, وlivres d'occasion مع توصيل سريع. English books agadir, papeterie agadir, fournitures scolaires agadir"
       : "Librairie à Agadir proposant nouveautés, scolaires et romans à prix abordables avec livraison rapide au Maroc",
@@ -111,8 +111,8 @@ const Agadir = () => {
               {language === "ar"
                 ? "مكتبة الفقراء في أكادير توفر لك أحدث الإصدارات والكتب المدرسية والروايات بأسعار مناسبة. نوفر خدمة توصيل سريعة لجميع مدن المغرب عبر واتساب."
                 : language === "fr"
-                ? "La Librairie des Pauvres à Agadir vous propose les dernières nouveautés, livres scolaires et romans à prix abordables. Nous offrons un service de livraison rapide dans toutes les villes du Maroc via WhatsApp."
-                : "The Poor's Library in Agadir offers you the latest releases, textbooks and novels at affordable prices. We provide fast delivery service to all cities in Morocco via WhatsApp."}
+                ? "La Librairie Alfokara à Agadir vous propose les dernières nouveautés, livres scolaires et romans à prix abordables. Nous offrons un service de livraison rapide dans toutes les villes du Maroc via WhatsApp."
+                : "The Alfokara Library in Agadir offers you the latest releases, textbooks and novels at affordable prices. We provide fast delivery service to all cities in Morocco via WhatsApp."}
             </p>
             <Button
               size="lg"
